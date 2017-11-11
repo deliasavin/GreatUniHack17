@@ -1,9 +1,5 @@
 package notabugbutafeature;
 
-/**
- *
- * @author yuchen
- */
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
@@ -13,13 +9,11 @@ public class Craft {
     private int y;
     private Image image;
 
-    public Craft() {
-        
+    public Craft() {   
         initCraft();
     }
     
-    private void initCraft() {
-        
+    private void initCraft() {       
         ImageIcon ii = new ImageIcon("green_square.png");
         image = ii.getImage();
         x = 25;
@@ -43,19 +37,19 @@ public class Craft {
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_LEFT) {
-            x = x - 5;
+            x = x - 10;
         }
 
         if (key == KeyEvent.VK_RIGHT) {
-            x = x + 5;
+            x = x + 10;
         }
 
         if (key == KeyEvent.VK_UP) {
-            y = y - 5;
+            y = y - 10;
         }
 
         if (key == KeyEvent.VK_DOWN) {
-            y = y + 5;
+            y = y + 10;
         }
         
         x = Math.max(0, x);
