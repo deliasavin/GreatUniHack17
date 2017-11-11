@@ -12,13 +12,14 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 
-public class Board extends JPanel implements ActionListener {
+public class SyntaxBoard extends JPanel implements ActionListener {
 
     private Timer timer;
     private Craft craft;
+    private RedSquare square;
     private final int DELAY = 10;
 
-    public Board() {
+    public SyntaxBoard() {
 
         initBoard();
     }
@@ -27,9 +28,10 @@ public class Board extends JPanel implements ActionListener {
         
         addKeyListener(new TAdapter());
         setFocusable(true);
-        setBackground(Color.BLACK);
+        setBackground(Color.BLUE);
 
         craft = new Craft();
+        square = new RedSquare();
 
         timer = new Timer(DELAY, this);
         timer.start();        
@@ -48,7 +50,10 @@ public class Board extends JPanel implements ActionListener {
     private void doDrawing(Graphics g) {
         
         Graphics2D g2d = (Graphics2D) g;
+        Graphics2D g2d2 = (Graphics2D) g;
+        
         g2d.drawImage(craft.getImage(), craft.getX(), craft.getY(), this);        
+        g2d2.drawImage(square.getImage(), square.getX(), square.getY(), this);
     }
 
     @Override
@@ -63,9 +68,11 @@ public class Board extends JPanel implements ActionListener {
             craft.keyReleased(e);
         }
 
+
         @Override
         public void keyPressed(KeyEvent e) {
             craft.keyPressed(e);
+            
         }
     }
 }

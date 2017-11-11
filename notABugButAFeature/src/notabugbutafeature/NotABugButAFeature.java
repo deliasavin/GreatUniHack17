@@ -12,7 +12,7 @@ public class NotABugButAFeature extends JFrame {
     
     private void initUI() {
         
-        add(new Board());
+        add(new SyntaxBoard());
         
         setSize(1400, 800);
         setResizable(false);
