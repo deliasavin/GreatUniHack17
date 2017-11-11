@@ -14,7 +14,7 @@ public class NotABugButAFeature extends JFrame {
         
         add(new Board());
         
-        setSize(1400, 1000);
+        setSize(1400, 800);
         setResizable(false);
         
         setTitle("Moving sprite");

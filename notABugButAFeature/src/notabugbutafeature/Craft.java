@@ -9,9 +9,6 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
 public class Craft {
-
-    private int dx;
-    private int dy;
     private int x;
     private int y;
     private Image image;
@@ -25,14 +22,8 @@ public class Craft {
         
         ImageIcon ii = new ImageIcon("green_square.png");
         image = ii.getImage();
-        x = 40;
-        y = 60;        
-    }
-
-
-    public void move() {
-        x += dx;
-        y += dy;
+        x = 25;
+        y = 0;        
     }
 
     public int getX() {
@@ -52,20 +43,25 @@ public class Craft {
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_LEFT) {
-            dx = -1;
+            x = x - 5;
         }
 
         if (key == KeyEvent.VK_RIGHT) {
-            dx = 1;
+            x = x + 5;
         }
 
         if (key == KeyEvent.VK_UP) {
-            dy = -1;
+            y = y - 5;
         }
 
         if (key == KeyEvent.VK_DOWN) {
-            dy = 1;
+            y = y + 5;
         }
+        
+        x = Math.max(0, x);
+        x = Math.min(1400 - 50, x);
+        y = Math.max(0, y);
+        y = Math.min(800 - 78, y);
     }
 
     public void keyReleased(KeyEvent e) {
@@ -73,19 +69,19 @@ public class Craft {
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_LEFT) {
-            dx = 0;
+            x = x;
         }
 
         if (key == KeyEvent.VK_RIGHT) {
-            dx = 0;
+            x = x;
         }
 
         if (key == KeyEvent.VK_UP) {
-            dy = 0;
+            y = y;
         }
 
         if (key == KeyEvent.VK_DOWN) {
-            dy = 0;
+            y = y;
         }
     }
 }

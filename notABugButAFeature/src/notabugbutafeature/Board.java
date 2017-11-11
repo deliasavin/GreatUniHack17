@@ -53,8 +53,6 @@ public class Board extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        craft.move();
         repaint();  
     }
 
