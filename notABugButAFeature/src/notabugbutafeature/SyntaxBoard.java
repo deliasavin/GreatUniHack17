@@ -30,7 +30,9 @@ public class SyntaxBoard extends JPanel implements ActionListener {
         setFocusable(true);
         setBackground(Color.BLUE);
 
-        craft = new Craft();
+ 
+        EnviormentBoard enviormentBoard = null;
+		craft = new Craft(enviormentBoard);
         square = new RedSquare();
 
         timer = new Timer(DELAY, this);
