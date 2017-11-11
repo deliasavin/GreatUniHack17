@@ -10,10 +10,10 @@ public class Craft {
     private int y;
     private Image image;
     private Rectangle collisionBox;
-    private EnviormentBoard environmentBoard;
+    private MasterBoard currentBoard;
 
-    public Craft(EnviormentBoard passedEnvironmentBoard) {
-        environmentBoard = passedEnvironmentBoard;
+    public Craft(MasterBoard passedBoard) {
+        currentBoard = passedBoard;
         initCraft();
     }
     
@@ -45,7 +45,7 @@ public class Craft {
 
         int key = e.getKeyCode();
 
-        if (!environmentBoard.overlaps(collisionBox)) {
+        if (!currentBoard.overlaps(collisionBox)) {
         if (key == KeyEvent.VK_LEFT) {
             x = x - 10;
         }

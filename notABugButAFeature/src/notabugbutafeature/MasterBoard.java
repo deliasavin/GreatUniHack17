@@ -10,21 +10,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 
-public class EnviormentBoard extends MasterBoard implements ActionListener {
+public class MasterBoard extends JPanel implements ActionListener {
 
     private Timer timer;
     private Craft craft;
     private final int DELAY = 10;
     
-    Image environmentTutorImage = null;
-    Rectangle masterTutorCollisionRectangle = new Rectangle(1000, 400, 70, 70);
+    private final JPanel masterTutor = new JPanel();
+    private Image masterTutorImage;
+    private final Rectangle masterTutorCollisionRectangle = null;
 
-    public EnviormentBoard() {
+    public MasterBoard() {
+
         initBoard();
     }
     
@@ -32,12 +33,10 @@ public class EnviormentBoard extends MasterBoard implements ActionListener {
         
         addKeyListener(new TAdapter());
         setFocusable(true);
-        setBackground(Color.BLACK);
+        setBackground(Color.GRAY);
+        MasterBoard masterBoard;
 
         craft = new Craft(this);
-        ImageIcon environmentTutorImageIcon = new ImageIcon("red_square.png");
-        Image environmentTutorImage = environmentTutorImageIcon.getImage();
-        
 
         timer = new Timer(DELAY, this);
         timer.start();        
@@ -53,18 +52,21 @@ public class EnviormentBoard extends MasterBoard implements ActionListener {
         Toolkit.getDefaultToolkit().sync();
     }
 
-    private void doDrawing(Graphics g) {       
+    private void doDrawing(Graphics g) {
+        
         Graphics2D g2d = (Graphics2D) g;
-        g2d.drawImage(craft.getImage(), craft.getX(), craft.getY(), this);
-        g2d.drawImage(environmentTutorImage, 1000, 400, this);          
+        g2d.drawImage(craft.getImage(), craft.getX(), craft.getY(), this);  
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        repaint();
+        repaint();  
     }
-
-
+    
+    public boolean overlaps (Rectangle r) {
+        return(masterTutorCollisionRectangle.intersects(r));
+    }
+    
     private class TAdapter extends KeyAdapter {
 
         @Override
@@ -76,5 +78,7 @@ public class EnviormentBoard extends MasterBoard implements ActionListener {
         public void keyPressed(KeyEvent e) {
             craft.keyPressed(e);
         }
+        
+        
     }
 }

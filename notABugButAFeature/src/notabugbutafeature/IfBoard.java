@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 
-public class IfBoard extends JPanel implements ActionListener {
+public class IfBoard extends MasterBoard implements ActionListener {
 
     private Timer timer;
     private Craft craft;
@@ -30,7 +30,7 @@ public class IfBoard extends JPanel implements ActionListener {
         setFocusable(true);
         setBackground(Color.GRAY);
 
-        craft = new Craft();
+        craft = new Craft(this);
         character = new BlueSquare();
 
         timer = new Timer(DELAY, this);
