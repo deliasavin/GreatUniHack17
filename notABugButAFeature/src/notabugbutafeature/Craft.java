@@ -23,7 +23,7 @@ public class Craft {
     
     private void initCraft() {
         
-        ImageIcon ii = new ImageIcon("craft.png");
+        ImageIcon ii = new ImageIcon("green_square.png");
         image = ii.getImage();
         x = 40;
         y = 60;        
