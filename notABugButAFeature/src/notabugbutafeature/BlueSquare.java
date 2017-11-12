@@ -33,21 +33,16 @@ public class BlueSquare {
     }
 
     /*public void keyPressed(KeyEvent e) {
-
         int key = e.getKeyCode();
-
         if (key == KeyEvent.VK_LEFT) {
             x = x - 10;
         }
-
         if (key == KeyEvent.VK_RIGHT) {
             x = x + 10;
         }
-
         if (key == KeyEvent.VK_UP) {
             y = y - 10;
         }
-
         if (key == KeyEvent.VK_DOWN) {
             y = y + 10;
         }
@@ -57,23 +52,18 @@ public class BlueSquare {
         y = Math.max(0, y);
         y = Math.min(800 - 78, y);
     }
-
     public void keyReleased(KeyEvent e) {
         
         int key = e.getKeyCode();
-
         if (key == KeyEvent.VK_LEFT) {
             x = x;
         }
-
         if (key == KeyEvent.VK_RIGHT) {
             x = x;
         }
-
         if (key == KeyEvent.VK_UP) {
             y = y;
         }
-
         if (key == KeyEvent.VK_DOWN) {
             y = y;
         }
