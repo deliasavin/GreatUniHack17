@@ -45,12 +45,25 @@ public class Craft {
     public boolean getLockedInQuest() {
         return lockedInQuest;
     }
+    
+    public void setLockedInQuest(boolean passedLockedInQuest) {
+        lockedInQuest = passedLockedInQuest;
+        System.out.println(lockedInQuest);
+    }
+    
+    public void setX(int passedX) {
+        x = passedX;
+    }
+    
+    public void setY(int passedY) {
+        y = passedY;
+    }
 
     public void keyPressed(KeyEvent e) {
 
         int key = e.getKeyCode();
 
-        if (!currentBoard.overlaps(collisionBox)) {
+        if (!currentBoard.overlaps(collisionBox) && !lockedInQuest) {
             if (key == KeyEvent.VK_LEFT) {
                 x = x - 10;
             }

@@ -22,7 +22,7 @@ public class MasterBoard extends JPanel implements ActionListener {
     
     private final JPanel masterTutor = new JPanel();
     private Image masterTutorImage;
-    private Rectangle masterTutorCollisionRectangle = new Rectangle(980, 380, 90, 90);
+    private Rectangle masterTutorCollisionRectangle = new Rectangle(980, 80, 90, 90);
 
     public MasterBoard() {
         initBoard();

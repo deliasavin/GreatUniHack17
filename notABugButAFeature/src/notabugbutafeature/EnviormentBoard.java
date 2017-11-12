@@ -17,8 +17,12 @@ import javax.swing.Timer;
 
 public class EnviormentBoard extends MasterBoard implements ActionListener {
     
-    Image environmentTutorImage = null;
+    private Image environmentTutorImage = null;
+    private boolean craftLockedInQuest;
+    private Graphics2D g2d;
 
+    private Image compilerTutorImage = null;
+    
     public EnviormentBoard() {
         initBoard();
     }
@@ -32,6 +36,9 @@ public class EnviormentBoard extends MasterBoard implements ActionListener {
         craft = new Craft(this);
         ImageIcon environmentTutorImageIcon = new ImageIcon("red_square.png");
         environmentTutorImage = environmentTutorImageIcon.getImage();
+        
+        ImageIcon compilerTutorImageicon = new ImageIcon("red_square.png");
+        compilerTutorImage = compilerTutorImageicon.getImage();
         
         timer = new Timer(DELAY, this);
         timer.start();        
@@ -48,14 +55,25 @@ public class EnviormentBoard extends MasterBoard implements ActionListener {
     }
 
     private void doDrawing(Graphics g) {       
-        Graphics2D g2d = (Graphics2D) g;
+        g2d = (Graphics2D) g;
         g2d.drawImage(craft.getImage(), craft.getX(), craft.getY(), this);
-        g2d.drawImage(environmentTutorImage, 1000, 400, this);          
+        g2d.drawImage(environmentTutorImage, 1000, 100, this);
+        g2d.drawImage(compilerTutorImage, 300, 300, this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         repaint();
+        
+        if (craft.getLockedInQuest()) {
+            ImageIcon backgroundImageIcon = new ImageIcon("forest.png");
+            Image background = backgroundImageIcon.getImage();
+            g2d.drawImage(background, 0, 0, this);
+            this.setBackground(Color.DARK_GRAY);
+            craft.setLockedInQuest(false);
+            craft.setX(1300);
+            craft.setY(100);
+        }
     }
 
 
