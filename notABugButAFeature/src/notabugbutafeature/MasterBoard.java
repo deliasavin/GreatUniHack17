@@ -16,16 +16,15 @@ import javax.swing.Timer;
 
 public class MasterBoard extends JPanel implements ActionListener {
 
-    private Timer timer;
-    private Craft craft;
-    private final int DELAY = 10;
+    Timer timer;
+    Craft craft;
+    final int DELAY = 10;
     
     private final JPanel masterTutor = new JPanel();
     private Image masterTutorImage;
-    private final Rectangle masterTutorCollisionRectangle = null;
+    private Rectangle masterTutorCollisionRectangle = new Rectangle(980, 380, 90, 90);
 
     public MasterBoard() {
-
         initBoard();
     }
     

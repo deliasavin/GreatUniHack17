@@ -16,13 +16,8 @@ import javax.swing.Timer;
 
 
 public class EnviormentBoard extends MasterBoard implements ActionListener {
-
-    private Timer timer;
-    private Craft craft;
-    private final int DELAY = 10;
     
     Image environmentTutorImage = null;
-    Rectangle masterTutorCollisionRectangle = new Rectangle(1000, 400, 70, 70);
 
     public EnviormentBoard() {
         initBoard();
@@ -36,9 +31,8 @@ public class EnviormentBoard extends MasterBoard implements ActionListener {
 
         craft = new Craft(this);
         ImageIcon environmentTutorImageIcon = new ImageIcon("red_square.png");
-        Image environmentTutorImage = environmentTutorImageIcon.getImage();
+        environmentTutorImage = environmentTutorImageIcon.getImage();
         
-
         timer = new Timer(DELAY, this);
         timer.start();        
     }
