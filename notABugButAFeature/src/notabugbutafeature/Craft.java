@@ -11,6 +11,7 @@ public class Craft {
     private Image image;
     private Rectangle collisionBox;
     private MasterBoard currentBoard;
+    private boolean lockedInQuest;
 
     public Craft(MasterBoard passedBoard) {
         currentBoard = passedBoard;
@@ -40,27 +41,33 @@ public class Craft {
     public Rectangle getCollisionBox() {
         return collisionBox;
     }
+    
+    public boolean getLockedInQuest() {
+        return lockedInQuest;
+    }
 
     public void keyPressed(KeyEvent e) {
 
         int key = e.getKeyCode();
 
         if (!currentBoard.overlaps(collisionBox)) {
-        if (key == KeyEvent.VK_LEFT) {
-            x = x - 10;
-        }
+            if (key == KeyEvent.VK_LEFT) {
+                x = x - 10;
+            }
 
-        if (key == KeyEvent.VK_RIGHT) {
-            x = x + 10;
-        }
+            if (key == KeyEvent.VK_RIGHT) {
+                x = x + 10;
+            }
 
-        if (key == KeyEvent.VK_UP) {
-            y = y - 10;
-        }
+            if (key == KeyEvent.VK_UP) {
+                y = y - 10;
+            }
 
-        if (key == KeyEvent.VK_DOWN) {
-            y = y + 10;
-        }
+            if (key == KeyEvent.VK_DOWN) {
+                y = y + 10;
+            }
+        } else {
+            lockedInQuest = true;
         }
         
         x = Math.max(0, x);
